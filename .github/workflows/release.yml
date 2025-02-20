@@ -17,7 +17,7 @@ jobs:
 
       - name: Create zip file
         run: |
-          zip -r module-$(echo ${{ github.ref_name }} | sed 's/^v//').zip \
+          zip -r sshd-magisk-$(echo ${{ github.ref_name }} | sed 's/^v//').zip \
           service.sh \
           post-fs-data.sh \
           module.prop \
@@ -28,7 +28,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            module-*.zip
+            sshd-magisk-*.zip
           draft: false
           prerelease: false
         env:
