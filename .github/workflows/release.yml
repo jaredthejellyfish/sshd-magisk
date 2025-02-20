@@ -15,14 +15,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Create temporary directory and copy files
+        run: |
+          mkdir -p temp_module
+          cp -r service.sh post-fs-data.sh module.prop customize.sh META-INF temp_module/
+
       - name: Create zip file
         run: |
-          zip -r sshd-magisk-$(echo ${{ github.ref_name }} | sed 's/^v//').zip \
-          service.sh \
-          post-fs-data.sh \
-          module.prop \
-          customize.sh \
-          META-INF/
+          cd temp_module
+          zip -r ../sshd-magisk-$(echo ${{ github.ref_name }} | sed 's/^v//').zip ./*
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
