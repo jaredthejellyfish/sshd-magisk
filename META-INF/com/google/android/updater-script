@@ -1,0 +1,2 @@
+ui_print("Installing sshd Magisk Module...");
+run_program("/sbin/magisk", "--install-module");

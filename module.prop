@@ -1,0 +1,6 @@
+id=sshd.module
+name=sshd
+version=1.0
+versionCode=1
+author=Jared Hernandez
+description=SSH server for Android start script
